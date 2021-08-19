@@ -1,81 +1,104 @@
 {
   "questions": [
     {
-      "name": "business_number",
+      "name": "givenName",
       "type": "text",
-      "title": "Business Number:",
+      "title": "First Name:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "business_name",
+      "name": "familyName",
       "type": "text",
-      "title": "Business Name:",
+      "title": "Last Name:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "registration_date",
+      "name": "birthDate",
       "type": "text",
       "inputType": "date",
-      "title": "Registration Date:",
+      "title": "Date of Birth:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "street_address",
+      "name": "security",
       "type": "text",
-      "title": "Street Address:",
+      "title": "Security:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "locality",
+      "name": "vaccineCode",
       "type": "text",
-      "title": "City:",
+      "title": "Vaccine Code:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "region",
+      "name": "occurrenceDate",
       "type": "text",
-      "title": "Province:",
+      "inputType": "date",
+      "title": "Date of Vaccination:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "postal_code",
+      "name": "vaccineLotNumber",
       "type": "text",
-      "title": "Postal Code:",
+      "title": "Vaccine Lot Number:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "country",
+      "name": "performerName",
       "type": "text",
-      "title": "Country:",
+      "title": "Performer Name:",
       "placeHolder": "",
-      "defaultValue": "Canada",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
+      "name": "isSubpotent",
+      "type": "text",
+      "title": "Is Subpotent:",
+      "placeHolder": "",
+      "isRequired": false
+    },
+    {
+      "name": "status",
+      "type": "text",
+      "title": "Status:",
+      "placeHolder": "",
+      "isRequired": true,
+      "requiredErrorText": "Required Field"
+    },
+    {
+      "name": "status",
+      "type": "text",
+      "title": "Status:",
+      "placeHolder": "",
+      "isRequired": true,
+      "requiredErrorText": "Required Field"
+    },
+    {
+      "type": "text",
       "name": "issued",
-      "type": "text",
       "title": "Issued:",
       "readOnly": true,
       "isRequired": true
     },
     {
-      "name": "placeholder",
       "type": "text",
+      "name": "placeholder",
       "defaultValue": "placeholder",
       "readOnly": true,
       "visibleIf": "{issued} empty"

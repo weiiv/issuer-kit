@@ -1,5 +1,6 @@
-import { NotImplemented } from "@feathersjs/errors";
+import { GeneralError, NotImplemented } from "@feathersjs/errors";
 import { Params } from "@feathersjs/feathers";
+import { Db, ObjectId } from "mongodb";
 import { Application } from "../../declarations";
 import {
   CredExState,
@@ -7,7 +8,7 @@ import {
   ServiceType,
   ServiceAction,
 } from "../../models/enums";
-import { updateInviteRecord } from "../../utils/issuer-invite";
+import { updateVaccineProof } from "../../utils/vaccine-proof";
 import { AriesCredentialAttribute } from "../../models/credential-exchange";
 
 interface Data {
@@ -16,9 +17,10 @@ interface Data {
   credential_proposal_dict?: any;
   revocation_id?: string;
   revoc_reg_id?: string;
+  connection_id?: string;
 }
 
-interface ServiceOptions {}
+interface ServiceOptions { }
 
 export class Webhooks {
   app: Application;
@@ -44,7 +46,26 @@ export class Webhooks {
   }
 
   private async handleConnection(data: Data): Promise<any> {
-    // implement your connection webhook logic here
+    switch (data.state) {
+      case CredExState.Response:
+        const client: Promise<Db> = this.app.get("mongoClient");
+
+        return await client.then(async (db) => {
+          const proof = await db
+            .collection("vaccine-proof")
+            .findOne({ connection_id: data.connection_id });
+
+          if (proof) {
+            const credExSvc = this.app.service('credential-exchange');
+            const credExSvcRes = await credExSvc.create(proof);
+            return credExSvcRes;
+          } else {
+            throw new GeneralError(
+              "Missing vaccine proof data"
+            );
+          }
+        });
+    }
   }
 
   private async handleIssueCredential(data: Data): Promise<any> {
@@ -60,21 +81,13 @@ export class Webhooks {
             attributes: attributes,
           },
         });
+        updateVaccineProof({ connection_id: data.connection_id }, data, this.app );
         return { result: "Success" };
       case CredExState.Issued:
         console.log(
           `Credential issued for cred_ex_id ${data.credential_exchange_id}`
         );
-        updateInviteRecord(
-          { credential_exchange_id: data.credential_exchange_id },
-          {
-            issued: true,
-            revoked: data.revocation_id ? false : undefined,
-            revocation_id: data.revocation_id,
-            revoc_reg_id: data.revoc_reg_id,
-          },
-          this.app
-        );
+        updateVaccineProof({ credential_exchange_id: data.credential_exchange_id }, data, this.app );
         return { result: "Success" };
       default:
         console.warn(

@@ -4,13 +4,11 @@ import { validateCredentialRequest } from "../../utils/hooks";
 export default {
   before: {
     all: [],
-    get: [],
     create: [],
   },
 
   after: {
     all: [],
-    get: [],
     create: [],
   },
 
@@ -24,7 +22,6 @@ export default {
         return context;
       },
     ],
-    get: [],
     create: [],
   },
 };

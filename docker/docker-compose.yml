@@ -9,6 +9,7 @@ services:
       PORT: ${API_PORT}
       AGENT_ADMIN_URL: ${AGENT_ADMIN_URL}
       AGENT_ADMIN_API_KEY: ${AGENT_ADMIN_API_KEY}
+      AGENT_ADMIN_AUTH_TOKEN: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ3YWxsZXRfaWQiOiJmYTcyOTA0MC1lZmY4LTQ4OGMtOGQ4Ny04OTFjNjAzNjU2YzcifQ.ao7FO1ZZowKTcFN4GFeu6Ra6MdRybAlrPzJfhr68qH4"
       DB_SERVICE: ${DB_SERVICE}
       DB_NAME: ${MONGODB_DATABASE}
       DB_USER: ${MONGODB_USER}
@@ -24,6 +25,7 @@ services:
       - ../api:/usr/src/api
     ports:
       - ${API_PORT}:${API_PORT}
+      - "9229:9229"
     networks:
       - issuer_kit
     working_dir: /usr/src/api
@@ -233,8 +235,9 @@ services:
         --seed '${AGENT_WALLET_SEED}' \
         --admin '0.0.0.0' ${AGENT_ADMIN_PORT} \
         --${AGENT_ADMIN_MODE} \
-        --label ${AGENT_NAME} \
-        --tails-server-base-url ${TAILS_SERVER_URL}",
+        --label '${AGENT_NAME}' \
+        --tails-server-base-url ${TAILS_SERVER_URL} \
+        ${AGENT_TENANCY_MODE}",
       ]
 
   #
