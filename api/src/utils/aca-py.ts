@@ -29,19 +29,24 @@ export class AcaPyUtils {
     return this.instance;
   }
 
-  getRequestConfig(): AxiosRequestConfig {
-    return {
-      headers: {
-        "x-api-key": this.app.get("agent").adminApiKey || "",
-      },
-    } as AxiosRequestConfig;
+  getRequestConfig(excludeAuthToken?: boolean): AxiosRequestConfig {
+    const headers: any = {};
+    const apiKey: string = this.app.get("agent").adminApiKey;
+    const authToken: string = this.app.get("agent").adminAuthToken;
+    if (!apiKey.startsWith('AGENT')) {
+      headers["x-api-key"] = apiKey;
+    }
+    if (!excludeAuthToken && !authToken.startsWith('AGENT')) {
+      headers["Authorization"] = 'Bearer ' + authToken;
+    }
+    return { headers: headers } as AxiosRequestConfig;
   }
 
   getAdminUrl(): string {
     return this.app.get("agent").adminUrl;
   }
 
-  async processDefinition(schemaDef: SchemaDefinition) {}
+  async processDefinition(schemaDef: SchemaDefinition) { }
 
   async init(): Promise<any> {
     const config = loadJSON("schemas.json") as SchemaDefinition[];
@@ -111,7 +116,8 @@ export class AcaPyUtils {
     const url = `${this.app.get("agent").adminUrl}/status/ready`;
     let result;
     try {
-      const response = await Axios.get(url, this.getRequestConfig());
+      const EXCLUDE_AUTH_HEADER = true;
+      const response = await Axios.get(url, this.getRequestConfig(EXCLUDE_AUTH_HEADER));
       result = response.status === 200 ? true : false;
     } catch (error) {
       result = false;

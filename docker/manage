@@ -284,12 +284,16 @@ configureEnvironment() {
   export AGENT_WEBHOOK_PORT=8020
   export AGENT_WEBHOOK_URL=${AGENT_WEBHOOK_URL:-http://api:5000/webhooks}
   export AGENT_HTTP_INTERFACE_PORT=8021
-  export AGENT_NAME="issuer-kit-demo"
+  export AGENT_NAME="ODS Lab Issuer"
   export AGENT_ENDPOINT=${NGROK_AGENT_ENDPOINT:-http://$DOCKERHOST:$AGENT_HTTP_INTERFACE_PORT}
   export AGENT_ADMIN_API_KEY=${AGENT_ADMIN_API_KEY:-"agent-api-key-dev"}
   export AGENT_ADMIN_MODE="admin-insecure-mode"
   if [ ! -z "${AGENT_ADMIN_API_KEY}" ]; then
     AGENT_ADMIN_MODE="admin-api-key ${AGENT_ADMIN_API_KEY}"
+  fi
+  #export AGENT_JWT_SECRET="admin-jwt-secret"
+  if [ ! -z "${AGENT_JWT_SECRET}" ]; then
+    export AGENT_TENANCY_MODE="--multitenant --multitenant-admin --jwt-secret ${AGENT_JWT_SECRET}"
   fi
 
   # api
@@ -452,8 +456,8 @@ case "${COMMAND}" in
     isJQInstalled
     isCurlInstalled
 
-    unset DEV_MODE
-    unset AGENT_WEBHOOK_URL
+    export DEV_MODE=true
+    export AGENT_WEBHOOK_URL="http://api-dev:5000/webhooks"
     export LEDGER_URL="http://test.bcovrin.vonx.io"
     export TAILS_SERVER_URL="https://tails-dev.vonx.io"
     if [[ ! -f ".env" ]]; then
@@ -472,7 +476,7 @@ case "${COMMAND}" in
 
     configureEnvironment "$@"
     customizeKeycloakConfig
-    docker-compose --env-file .env up -d ${_startupParams} ${DEFAULT_CONTAINERS} ${PROD_CONTAINERS}
+    docker-compose --env-file .env up -d ${_startupParams} ${DEFAULT_CONTAINERS} ${DEV_CONTAINERS}
     docker-compose logs -f
     ;;
   stop)

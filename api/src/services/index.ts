@@ -2,6 +2,7 @@ import { Application } from "../declarations";
 import ariesAgent from "./aries-agent/aries-agent.service";
 import connection from "./connection/connection.service";
 import credentialExchange from "./credential-exchange/credential-exchange.service";
+import vaccineProof from "./vaccine-proof/vaccine-proof.service";
 import issuerInvite from "./issuer-invite/issuer-invite.service";
 import mailer from "./mailer/mailer.service";
 import webhooks from './webhooks/webhooks.service';
@@ -12,6 +13,7 @@ export function services(app: Application) {
   app.configure(issuerInvite);
   app.configure(connection);
   app.configure(credentialExchange);
+  app.configure(vaccineProof);
   app.configure(webhooks);
   app.configure(tokenValidation);
 }

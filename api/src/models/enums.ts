@@ -19,4 +19,5 @@ export enum CredExState {
   OfferSent = "offer_sent",
   RequestReceived = "request_received",
   Issued = "credential_issued",
+  Response = "response",
 }

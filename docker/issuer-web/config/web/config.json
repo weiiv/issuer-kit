@@ -30,8 +30,16 @@
     "successText": "To try out your new credential:",
     "links": [
       {
-        "url": "https://csb-audio.pathfinder.gov.bc.ca",
-        "description": "CSB Audio"
+        "url": "https://covax.dev.ontariohealth.ca:1443/",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+        "description": "COVAX Portal"
+=======
+        "description": "COVAX"
+>>>>>>> Stashed changes
+=======
+        "description": "COVAX Portal"
+>>>>>>> Stashed changes
       }
     ]
   }

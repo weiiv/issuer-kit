@@ -15,7 +15,8 @@
   },
   "agent": {
     "adminUrl": "AGENT_ADMIN_URL",
-    "adminApiKey": "AGENT_ADMIN_API_KEY"
+    "adminApiKey": "AGENT_ADMIN_API_KEY",
+    "adminAuthToken": "AGENT_ADMIN_AUTH_TOKEN"
   },
   "smtp": {
     "host": "SMTP_HOST",

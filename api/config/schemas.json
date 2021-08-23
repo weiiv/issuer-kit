@@ -1,21 +1,23 @@
 [
   {
-    "schema_name": "verified_person",
-    "schema_version": "0.1.0",
+    "schema_name": "pan-canadian-pvc",
+    "schema_version": "0.1.4",
     "attributes": [
-      "locality",
-      "issued",
-      "birthdate",
-      "postal_code",
-      "region",
-      "family_name",
-      "street_address",
-      "country",
-      "given_names"
+      "givenName",
+      "familyName",
+      "birthDate",
+      "security",
+      "vaccineCode",
+      "occurrenceDate",
+      "vaccineLotNumber",
+      "performerName",
+      "isSubpotent",
+      "status",
+      "manufacturer",
+      "issued"
     ],
     "default": true,
     "revocable": true,
-    "tag": "issuer-kit-dev",
     "public": true
   }
 ]
