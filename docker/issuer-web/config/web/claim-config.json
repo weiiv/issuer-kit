@@ -1,26 +1,26 @@
 {
   "questions": [
     {
-      "name": "given_names",
+      "name": "business_number",
       "type": "text",
-      "title": "First Name:",
+      "title": "Business Number:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "family_name",
+      "name": "business_name",
       "type": "text",
-      "title": "Last Name:",
+      "title": "Business Name:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "birthdate",
+      "name": "registration_date",
       "type": "text",
       "inputType": "date",
-      "title": "Date of Birth:",
+      "title": "Registration Date:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
@@ -29,14 +29,6 @@
       "name": "street_address",
       "type": "text",
       "title": "Street Address:",
-      "placeHolder": "",
-      "isRequired": true,
-      "requiredErrorText": "Required Field"
-    },
-    {
-      "name": "postal_code",
-      "type": "text",
-      "title": "Postal Code:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
@@ -58,6 +50,14 @@
       "requiredErrorText": "Required Field"
     },
     {
+      "name": "postal_code",
+      "type": "text",
+      "title": "Postal Code:",
+      "placeHolder": "",
+      "isRequired": true,
+      "requiredErrorText": "Required Field"
+    },
+    {
       "name": "country",
       "type": "text",
       "title": "Country:",
@@ -67,15 +67,15 @@
       "requiredErrorText": "Required Field"
     },
     {
-      "type": "text",
       "name": "issued",
+      "type": "text",
       "title": "Issued:",
       "readOnly": true,
       "isRequired": true
     },
     {
-      "type": "text",
       "name": "placeholder",
+      "type": "text",
       "defaultValue": "placeholder",
       "readOnly": true,
       "visibleIf": "{issued} empty"
