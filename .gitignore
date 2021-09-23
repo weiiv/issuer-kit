@@ -9,6 +9,7 @@
 **/*.env
 **/.nvmrc
 **/yarn.lock
+**/package-lock.json
 
 # Visual Studio Code
 .vscode
