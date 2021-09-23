@@ -1,5 +1,5 @@
 {
-  "host": "localhost",
+  "host": "di-lab1.canadacentral.cloudapp.azure.com",
   "port": "PORT",
   "public": "../public/",
   "paginate": {

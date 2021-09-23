@@ -567,8 +567,8 @@
       "clientAuthenticatorType": "client-secret",
       "secret": "**********",
       "redirectUris": [
-        "http://localhost:4250/*",
-        "http://localhost:8081/*"
+        "http://di-lab1.canadacentral.cloudapp.azure.com:4250/*",
+        "http://di-lab1.canadacentral.cloudapp.azure.com:8081/*"
       ],
       "webOrigins": [
         "+"
@@ -692,8 +692,8 @@
       "clientAuthenticatorType": "client-secret",
       "secret": "**********",
       "redirectUris": [
-        "http://localhost:4251/*",
-        "http://localhost:8082/*"
+        "http://di-lab1.canadacentral.cloudapp.azure.com:4251/*",
+        "http://di-lab1.canadacentral.cloudapp.azure.com:8082/*"
       ],
       "webOrigins": [
         "+"
