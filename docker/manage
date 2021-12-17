@@ -361,7 +361,7 @@ deleteVolumes() {
   echo "Stopping and removing any running containers ..."
   docker-compose down -v
 
-  _pattern="^${_projectName}_\|^docker_"
+  _pattern="^${_projectName}_[^k]\|^docker_"
   _volumes=$(docker volume ls -q | grep ${_pattern})
 
   if [ ! -z "${_volumes}" ]; then
