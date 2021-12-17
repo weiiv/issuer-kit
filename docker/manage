@@ -359,7 +359,7 @@ deleteVolumes() {
   _projectName=${COMPOSE_PROJECT_NAME:-docker}
 
   echo "Stopping and removing any running containers ..."
-  docker-compose down -v
+  docker-compose down
 
   _pattern="^${_projectName}_[^k]\|^docker_"
   _volumes=$(docker volume ls -q | grep ${_pattern})
