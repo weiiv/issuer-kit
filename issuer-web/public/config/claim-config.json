@@ -1,26 +1,26 @@
 {
   "questions": [
     {
-      "name": "business_number",
+      "name": "given_names",
       "type": "text",
-      "title": "Business Number:",
+      "title": "First Name:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "business_name",
+      "name": "family_name",
       "type": "text",
-      "title": "Business Name:",
+      "title": "Last Name:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "registration_date",
+      "name": "birthdate",
       "type": "text",
       "inputType": "date",
-      "title": "Registration Date:",
+      "title": "Date of Birth:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
@@ -29,6 +29,14 @@
       "name": "street_address",
       "type": "text",
       "title": "Street Address:",
+      "placeHolder": "",
+      "isRequired": true,
+      "requiredErrorText": "Required Field"
+    },
+    {
+      "name": "postal_code",
+      "type": "text",
+      "title": "Postal Code:",
       "placeHolder": "",
       "isRequired": true,
       "requiredErrorText": "Required Field"
@@ -50,14 +58,6 @@
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "postal_code",
-      "type": "text",
-      "title": "Postal Code:",
-      "placeHolder": "",
-      "isRequired": true,
-      "requiredErrorText": "Required Field"
-    },
-    {
       "name": "country",
       "type": "text",
       "title": "Country:",
@@ -67,15 +67,15 @@
       "requiredErrorText": "Required Field"
     },
     {
-      "name": "issued",
       "type": "text",
+      "name": "issued",
       "title": "Issued:",
       "readOnly": true,
       "isRequired": true
     },
     {
-      "name": "placeholder",
       "type": "text",
+      "name": "placeholder",
       "defaultValue": "placeholder",
       "readOnly": true,
       "visibleIf": "{issued} empty"

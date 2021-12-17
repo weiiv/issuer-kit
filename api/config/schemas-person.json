@@ -1,17 +1,17 @@
 [
   {
-    "schema_name": "verified_business",
-    "schema_version": "0.1.1",
+    "schema_name": "verified_person",
+    "schema_version": "0.1.0",
     "attributes": [
-      "business_number",
-      "business_name",
-      "registration_date",
-      "street_address",
       "locality",
-      "region",
+      "issued",
+      "birthdate",
       "postal_code",
+      "region",
+      "family_name",
+      "street_address",
       "country",
-      "issued"
+      "given_names"
     ],
     "default": true,
     "revocable": true,
