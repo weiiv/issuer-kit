@@ -439,7 +439,7 @@ case "${COMMAND}" in
     export LEDGER_URL="http://test.bcovrin.vonx.io"
     export TAILS_SERVER_URL="https://tails-dev.vonx.io"
     export NGROK_AGENT_ENDPOINT="http://di-lab1.canadacentral.cloudapp.azure.com:8021"
-    
+
     if [[ ! -f ".env" ]]; then
       AGENT_WALLET_SEED=$(generateSeed issuer-kit-demo)
       echo "Generated AGENT_WALLET_SEED=${AGENT_WALLET_SEED}"
@@ -448,7 +448,7 @@ case "${COMMAND}" in
 
     configureEnvironment "$@"
     customizeKeycloakConfig
-    docker-compose up -d ${_startupParams} ${DEFAULT_CONTAINERS} ${PROD_CONTAINERS}
+    docker-compose --env-file .env up -d ${_startupParams} ${DEFAULT_CONTAINERS} ${PROD_CONTAINERS}
     docker-compose logs -f
     ;;
   start-dev)
