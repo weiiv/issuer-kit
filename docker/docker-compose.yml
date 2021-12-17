@@ -257,7 +257,7 @@ services:
 
   tails-server:
     build:
-      context: https://github.com/bcgov/indy-tails-server.git
+      context: https://github.com/bcgov/indy-tails-server.git#main
       dockerfile: docker/Dockerfile.tails-server
     ports:
       - ${TAILS_SERVER_PORT}:${TAILS_SERVER_PORT}
