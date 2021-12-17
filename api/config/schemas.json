@@ -1,7 +1,7 @@
 [
   {
     "schema_name": "verified_business",
-    "schema_version": "0.1.1",
+    "schema_version": "0.1.2",
     "attributes": [
       "business_number",
       "business_name",
